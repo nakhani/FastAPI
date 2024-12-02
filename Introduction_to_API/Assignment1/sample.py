@@ -61,21 +61,14 @@ class MainWindow(QMainWindow):
         self.ui.layout_forcast.addWidget(self.forecast_widget)
 
     def get_weather(self):
-        city = self.ui.search_bar.text()
-        if not city:
-            QMessageBox.warning(self, 'Input Error', 'Please enter a city name.')
-            return
-
-        url = f'https://goweather.herokuapp.com/weather/{city}'
-        try:
-            response = requests.get(url)
-            response.raise_for_status()
-            weather_data = response.json()
-            self.display_weather(weather_data)
-            self.display_forecast(weather_data)
-        except requests.exceptions.RequestException as e:
-            QMessageBox.critical(self, 'API Error', 'Failed to load weather data.')
-            print(f'Error: {e}')
+        weather_data = {'temperature': '+5 °C',
+                        'wind': '6 km/h',
+                        'description': 'Clear',
+                        'forecast': [{'day': '1', 'temperature': '4 °C', 'wind': '7 km/h'},
+                                     {'day': '2', 'temperature': '+5 °C', 'wind': '7 km/h'},
+                                     {'day': '3', 'temperature': ' °C', 'wind': '5 km/h'}]}
+        self.display_weather(weather_data)
+        self.display_forecast(weather_data)
 
     def display_weather(self, data):
         if 'temperature' in data and 'wind' in data and 'description' in data:
@@ -91,7 +84,7 @@ class MainWindow(QMainWindow):
             pixmap = pixmap.scaled(self.weather_sticker.size())
             self.weather_sticker.setPixmap(pixmap)
         else:
-            QMessageBox.critical(self, 'Data Error', 'Weather data is not completed.')
+            QMessageBox.critical(self, 'Data Error', 'Incomplete weather data received.')
 
     def display_forecast(self, data):
         if 'forecast' in data:
