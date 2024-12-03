@@ -19,9 +19,16 @@ class MainWindow(QMainWindow):
 
         self.weather_layout = QHBoxLayout()
         self.weather_info = QLabel('', self)
-        
+
+        self.city = QLabel('', self)
+
         font = QFont('Times New Roman', 14, QFont.Bold)
+        font_city = QFont('Calibri', 50)
+
         self.weather_info.setFont(font)
+        self.city.setFont(font_city)
+        self.city.setStyleSheet("color: gold")  
+
 
         self.weather_sticker = QLabel('', self)
         self.weather_sticker.setFixedSize(100, 100)  
@@ -29,6 +36,9 @@ class MainWindow(QMainWindow):
         self.weather_layout.addWidget(self.weather_sticker)
         self.weather_layout.addSpacing(10)  
         self.weather_layout.addWidget(self.weather_info)
+        self.weather_layout.addSpacing(10)  
+        self.weather_layout.addWidget(self.city)
+
 
         self.forecast_layout = QHBoxLayout()
         self.weather_forecast1 = QLabel('', self)
@@ -57,20 +67,22 @@ class MainWindow(QMainWindow):
         self.ui.layout_forcast.addWidget(self.forecast_widget)
 
     def get_weather(self):
+        city = "Tehran"
         weather_data = {'temperature': '+5 °C',
                         'wind': '6 km/h',
                         'description': 'Clear',
                         'forecast': [{'day': '1', 'temperature': '4 °C', 'wind': '7 km/h'},
                                      {'day': '2', 'temperature': '+5 °C', 'wind': '7 km/h'},
                                      {'day': '3', 'temperature': ' °C', 'wind': '5 km/h'}]}
-        self.display_weather(weather_data)
+        self.display_weather(weather_data, city)
         self.display_forecast(weather_data)
 
-    def display_weather(self, data):
+    def display_weather(self, data, city):
         if 'temperature' in data and 'wind' in data and 'description' in data:
             self.weather_info.setText(f"Temperature: {data['temperature']}\n"
                 f"Wind: {data['wind']}\n"
                 f"Description: {data['description']}")
+            self.city.setText(city[:3].upper()) 
 
             description = data['description']
             sticker_path = self.get_sticker_path(description)
