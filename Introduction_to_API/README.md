@@ -26,8 +26,11 @@ Write code to interact with different APIs using a programming language of your 
 - **API Interactions**: Write code to interact with four different APIs. The chosen APIs for this assignment are:
   1. **Fruit API** 🍉
   2. **Number API** 🔢
-  3. **Harry Potter API** ⚡️
+  3. **Weather API** ⚡️
   4. **Quran API** 📖
+  5. **Notexitedperson API** 👩
+  6. **Photo API** 🖼
+  7. **Dictionary API** 📕
 
 ### Implementation
 - Write Go language scripts to interact with each API.
