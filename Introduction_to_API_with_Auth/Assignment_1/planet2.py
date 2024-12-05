@@ -40,24 +40,29 @@ def generate_image(plant_name):
 
 def recognize_plant(image_url):
     url = "https://my-api.plantnet.org/v2/identify/all"
-    api_key = os.getenv("API_planet_key")
 
+    Api_key = os.getenv("API_planet_key")
+    print(f"API Key: {Api_key}")  
 
-    headers = {}
+    headers = {
+    }
 
     payload = {
-    "api-key" : api_key}
+        "api-key": Api_key
+    }
 
-    files = {"image": ("image.jpg", requests.get(image_url).content, "image/jpeg")}
-    
+    files = {
+        "images": ("image.jpg", requests.get(image_url).content, "image/jpeg")
+    }
 
     try:
         response = requests.post(url, headers=headers, params=payload, files=files)
         print(response.status_code)
-        print (response.json())
+        print(response.json())
         return response.json().get("results")[0].get("species").get("scientificNameWithoutAuthor")
     except requests.exceptions.HTTPError as http_err:
         print(f"HTTP error occurred: {http_err}")
+        print(response.text)  
     except Exception as err:
         print(f"An error occurred: {err}")
 
