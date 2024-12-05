@@ -29,8 +29,10 @@ def generate_image(plant_name):
     try:
         response = requests.post(url, headers=headers, json=payload)
         print(response.status_code)
-        print(response.text)
-        return response.json().get("image_url")  # Assuming the response contains an image URL
+        response_json = response.json()
+        response_json= response_json.get("image", {}).get("url")
+        print (response_json )
+
     except requests.exceptions.HTTPError as http_err:
         print(f"HTTP error occurred: {http_err}")
     except Exception as err:
@@ -40,12 +42,19 @@ def recognize_plant(image_url):
     url = "https://my-api.plantnet.org/v2/identify/all"
     api_key = os.getenv("API_planet_key")
 
+
+    headers = {}
+
+    payload = {
+    "api-key" : api_key}
+
     files = {"image": ("image.jpg", requests.get(image_url).content, "image/jpeg")}
-    payload = {"api-key": api_key}
+    
 
     try:
-        response = requests.post(url, files=files, data=payload)
-        response.raise_for_status()
+        response = requests.post(url, headers=headers, params=payload, files=files)
+        print(response.status_code)
+        print (response.json())
         return response.json().get("results")[0].get("species").get("scientificNameWithoutAuthor")
     except requests.exceptions.HTTPError as http_err:
         print(f"HTTP error occurred: {http_err}")
@@ -57,13 +66,12 @@ def main():
     plant_name = args.plant_name
     
 
-    # Generate image using text2image model
     image_url = generate_image(plant_name)
     if not image_url:
         print("Failed to generate image.")
         return
 
-    # Recognize plant using PlantNet API
+    
     plant_recognition_result = recognize_plant(image_url)
     if plant_recognition_result:
         print(f"The recognized plant name is: {plant_recognition_result}")
