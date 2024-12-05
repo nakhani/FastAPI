@@ -75,7 +75,6 @@ def main():
     if not image_url:
         print("Failed to generate image.")
         return
-
     
     plant_recognition_result = recognize_plant(image_url)
     if plant_recognition_result:
