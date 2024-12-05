@@ -1,0 +1,74 @@
+import os
+import requests
+import argparse
+import dotenv 
+
+dotenv = dotenv.load_dotenv()
+
+def get_arguments():
+    parser = argparse.ArgumentParser(description="Generate and recognize plant images")
+    parser.add_argument("plant_name", type=str, help="Name of the flower or plant")
+    return parser.parse_args()
+
+def generate_image(plant_name):
+    url = "https://54285744-illusion-diffusion.gateway.alpha.fal.ai/" 
+    api_key = os.getenv("API_Dif_key")
+
+    payload = {
+        "image_url": "https://storage.googleapis.com/falserverless/illusion-examples/pattern.png",
+        "prompt": f"{plant_name}",
+        "negative-prompt": "worst quality"
+        
+        
+}
+    headers = {
+        "Authorization": api_key,
+        "Content-Type": "application/json"
+    }
+
+    try:
+        response = requests.post(url, headers=headers, json=payload)
+        print(response.status_code)
+        print(response.text)
+        return response.json().get("image_url")  # Assuming the response contains an image URL
+    except requests.exceptions.HTTPError as http_err:
+        print(f"HTTP error occurred: {http_err}")
+    except Exception as err:
+        print(f"An error occurred: {err}")
+
+def recognize_plant(image_url):
+    url = "https://my-api.plantnet.org/v2/identify/all"
+    api_key = os.getenv("API_planet_key")
+
+    files = {"image": ("image.jpg", requests.get(image_url).content, "image/jpeg")}
+    payload = {"api-key": api_key}
+
+    try:
+        response = requests.post(url, files=files, data=payload)
+        response.raise_for_status()
+        return response.json().get("results")[0].get("species").get("scientificNameWithoutAuthor")
+    except requests.exceptions.HTTPError as http_err:
+        print(f"HTTP error occurred: {http_err}")
+    except Exception as err:
+        print(f"An error occurred: {err}")
+
+def main():
+    args = get_arguments()
+    plant_name = args.plant_name
+    
+
+    # Generate image using text2image model
+    image_url = generate_image(plant_name)
+    if not image_url:
+        print("Failed to generate image.")
+        return
+
+    # Recognize plant using PlantNet API
+    plant_recognition_result = recognize_plant(image_url)
+    if plant_recognition_result:
+        print(f"The recognized plant name is: {plant_recognition_result}")
+    else:
+        print("Failed to recognize the plant.")
+
+if __name__ == "__main__":
+    main()
