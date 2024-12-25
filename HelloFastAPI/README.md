@@ -1,4 +1,4 @@
-# Solar System API
+# Solar System API 🪐
 
 Hi! Welcome to my Solar System API. This API provides information about the solar system's star, planets, and moons. It offers endpoints to retrieve detailed data and images of various celestial objects in our solar system.
 
