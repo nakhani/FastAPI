@@ -39,7 +39,7 @@ Hi! Welcome to my Solar System API. This API provides information about the sola
 ## Deployment
 
 ```Bash
-The API is live and can be accessed at: 
+The API is live and can be accessed at: https://fastapi-qgui.onrender.com
 ```
 
 ## Screenshot of API Docs
