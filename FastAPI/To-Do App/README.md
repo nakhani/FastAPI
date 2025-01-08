@@ -14,6 +14,8 @@ A simple To-Do application built with FastAPI and SQLite.
 ### GET /items
 Fetch all tasks.
 
+<img src="photos/1.png" width = "300">
+
 **Response:**
 ```json
 [
@@ -30,6 +32,8 @@ Fetch all tasks.
 ### POST /items
 Add a new task.
 
+<img src="photos/2.png" width = "300">
+
 **Request:**
 
 - title: str (Form)
@@ -39,10 +43,13 @@ Add a new task.
 - time: str (Form)
 
 **Response:**
+
 Updated list of tasks.
 
 ### DELETE /items/{title}
 Delete a task by its title.
+
+<img src="photos/3.png" width = "300">
 
 **Response:**
 ```json
@@ -54,6 +61,8 @@ Delete a task by its title.
 ### PUT /items/{title}
 Update a task by its title.
 
+<img src="photos/4.png" width = "300">
+
 **Request:**
 
 - new_description: str (Form) [optional]
@@ -61,6 +70,7 @@ Update a task by its title.
 - new_time: str (Form) [optional]
 
 **Response:**
+
 Updated task details.
 
 ## Installation
@@ -68,7 +78,7 @@ Updated task details.
 1. Clone the repository:
  
     ```bash
-    git clone https://github.com/yourusername/todo-api.git
+    git clone https://github.com/nakhani/FastAPI/tree/1a79a476adda102c2f28d1b6f2660418c561916e/FastAPI/To-Do%20App
     ```
 2. Install dependencies:
 
