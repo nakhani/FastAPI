@@ -1,4 +1,4 @@
-# To-Do API
+# To-Do APP
 
 A simple To-Do application built with FastAPI and SQLite.
 
