@@ -14,7 +14,7 @@ A simple To-Do application built with FastAPI and SQLite.
 ### GET /items
 Fetch all tasks.
 
-<img src="photos/1.png" width = "300">
+<img src="photos/1.png" >
 
 **Response:**
 ```json
@@ -32,7 +32,7 @@ Fetch all tasks.
 ### POST /items
 Add a new task.
 
-<img src="photos/2.png" width = "300">
+<img src="photos/2.png" >
 
 **Request:**
 
@@ -49,7 +49,7 @@ Updated list of tasks.
 ### DELETE /items/{title}
 Delete a task by its title.
 
-<img src="photos/3.png" width = "300">
+<img src="photos/3.png" >
 
 **Response:**
 ```json
@@ -61,7 +61,7 @@ Delete a task by its title.
 ### PUT /items/{title}
 Update a task by its title.
 
-<img src="photos/4.png" width = "300">
+<img src="photos/4.png" >
 
 **Request:**
 
