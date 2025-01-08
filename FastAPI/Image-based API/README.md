@@ -18,7 +18,7 @@ This project provides an API endpoint for analyzing facial attributes such as ag
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-repo/face-analysis-api.git
+   git clone https://github.com/nakhani/FastAPI/tree/bf01708126d6839ca0b80d1c4af81f8fa2c702c9/FastAPI/Image-based%20API
 
     cd Image-based API
    ```
