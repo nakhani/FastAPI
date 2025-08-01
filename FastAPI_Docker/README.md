@@ -43,7 +43,11 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS  
 This project is deployed using [Liara](https://liara.ir).
 
 ---
+## ℹ️ More Details
 
+For complete information about the To-Do App, visit the original [GitHub repository](https://github.com/nakhani/FastAPI/tree/a05370397466e3357ea31a72285428ef9f2045ca/FastAPI/To-Do%20App).
+
+---
 ## 📦 Installation
 
 ```bash
