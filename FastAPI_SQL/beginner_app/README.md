@@ -26,21 +26,6 @@ This project is a basic user management API built with **FastAPI**, **SQLAlchemy
 - Error handling for duplicates and missing records
 
 ---
-## 📜 API Documentation (Swagger UI)
-
-FastAPI automatically generates a Swagger interface to test and interact with your API.
-
-Open in browser:
-
-```bash
-http://127.0.0.1:8000/docs
-```
-🔽 Example Swagger UI screenshot:
-
-<img src="docs/1.png" width= "300">
-<img src="docs/2.png" width= "300">
-
----
 
 ## ▶️ How to Run
 
@@ -61,6 +46,21 @@ The server will run locally at:
 ```bash
 http://127.0.0.1:8000
 ```
+---
+## 📜 API Documentation (Swagger UI)
+
+FastAPI automatically generates a Swagger interface to test and interact with your API.
+
+Open in browser:
+
+```bash
+http://127.0.0.1:8000/docs
+```
+🔽 Example Swagger UI screenshot:
+
+<img src="docs/1.png" width= "300">
+<img src="docs/2.png" width= "300">
+
 ---
 
 ## 🧪 Technologies Used
