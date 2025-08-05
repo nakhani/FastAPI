@@ -34,11 +34,5 @@ This lightweight app provides foundational learning through:
 
 > 📦 See [`beginner_app/README.md`](./beginner_app/README.md) for instructions on running locally and exploring the codebase.
 
----
 
-## 👩‍💻 Author
-
-Built with ♥️ by **Najmeh**, a software engineer passionate about backend development, Docker, and international student life.
-
----
 
