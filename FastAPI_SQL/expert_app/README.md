@@ -27,13 +27,13 @@ This project is a **FastAPI-based RESTful service** for managing students and co
 - Try out endpoints interactively using the built-in Swagger interface
 
 ### 🟦 Students – POST Endpoint
-<img src="docs/1.png" width= "300">
+<img src="Docs/2.png" width= "500">
 
 ### 🟥 Courses – POST Endpoint
-<img src="docs/1.png" width= "300">
+<img src="Docs/3.png" width= "500">
 
 ### 🔧 Swagger UI Interface
-<img src="docs/1.png" width= "300">
+<img src="Docs/1.png" width= "500">
 
 ---
 
