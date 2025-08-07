@@ -2,7 +2,7 @@ import asyncio
 import aiohttp
 import sys
 
-API_KEY = "6e6f6a6f6f6d3430333040676d61696c2e636f6d"  
+API_KEY = "YOUR_API_KEY"  
 MY_STATE_NAME = "تهران"        
 MY_CITY_NAME = "تهران"         
 
